@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html class="no-js" lang="">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>jQuery isiaFormRepeater Plugin Examples</title>
+    <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+    <link rel="stylesheet" href="css/isia-form-repeater.min.css">
+    <link rel="stylesheet" href="css/demo.css">
+  </head>
+
+  <body>
+    <div id="page" style="max-width: 900px;">
+      <h1>Marketing Rules</h1>
+      <form class="pure-form pure-form-stacked">
+        <fieldset>
+          <!-- GROUP REPETITION -->
+          <div
+            id="base"
+            class="isiaFormRepeater repeat-section"
+            style="display: flex; align-items:center;"
+            data-field-id="base"
+            data-items-index-array="[1]"
+          >
+            <div class="repeat-items">
+              <div
+                class="repeat-item"
+                style="display: flex; align-items:center;"
+                data-field-index="1"
+              >
+
+                <!-- CONDITIONS REPETION -->
+                <div
+                  id="base_condition_group_1"
+                  class="isiaFormRepeater repeat-section"
+                  style="display: flex; align-items:center;"
+                  data-field-id="condition"
+                  data-items-index-array="[1]"
+                >
+                  <div class="repeat-items">
+                    <div
+                      class="repeat-item"
+                      style="display: flex; align-items:center;"
+                      data-field-index="1"
+                    >
+                      <div style="margin-right: .5rem; margin-left: .5rem;">
+                        <label>Condition</label>
+                        <select class="repeat-el" name="test_field_id[1][test_sub1]">
+                          <option value="" disabled selected>Metric</option>
+                          <option value="Clicks">Clicks</option>
+                          <option value="Impressions">Impressions</option>
+                          <option value="CTR">CPC</option>
+                          <option value="CTR">CTR</option>
+                          <option value="CTR Rank">CVR</option>
+                          <option value="Clicks Rank">CPA</option>
+                        </select>
+                      </div>
+    
+                      <div style="margin-right: .5rem; margin-left: .5rem;">
+                        <label>Operator</label>
+                        <select class="repeat-el" name="test_field_id[1][test_sub1]">
+                          <option value="" disabled selected>Operator</option>
+                          <option value="<"><</option>
+                          <option value="<="><=</option>
+                          <option value=">">></option>
+                          <option value=">=">>=</option>
+                          <option value="=">=</option>
+                        </select>
+                      </div>
+    
+                      <div style="margin-right: .5rem; margin-left: .5rem;">
+                        <label>Lookback Window</label>
+                        <select class="repeat-el" name="test_field_id[1][test_sub1]">
+                          <option value="" disabled selected>Lookback Window</option>
+                          <option value="3 Days">3 Days</option>
+                          <option value="Impressions">2</option>
+                          <option value="CTR">CPC</option>
+                          <option value="CTR">CTR</option>
+                          <option value="CTR Rank">CVR</option>
+                          <option value="Clicks Rank">CPA</option>
+                        </select>
+                      </div>
+    
+                      <div style="margin-right: .5rem; margin-left: .5rem;">
+                        <label>Value</label>
+                        <input type="text" name="firstname" size="10" maxlength="4" style="font-size: 12pt; height: 30px; width:180px">
+                      </div>
+                    </div>
+                  </div> 
+                </div>
+                <!-- END OF CONDITIONS REPETION -->
+
+              </div>
+            </div>
+          </div>
+          <!-- END OF GROUP REPETITION -->
+        </fieldset>
+      </form>
+    </div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"
+      integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+      crossorigin="anonymous">
+    </script>
+    <!-- <script src="js/isia-form-repeater.min.js"></script> -->
+    <script src="../src/js/main.js"></script>
+    <script src="js/demo.js"></script>
+  </body>
+</html>

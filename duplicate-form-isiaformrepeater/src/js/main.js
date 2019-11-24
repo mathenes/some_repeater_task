@@ -39,18 +39,16 @@
           event.stopPropagation();
         } else {
           const currentFieldIndex = parseInt($(this).attr('data-field-index'));
-          if (currentFieldIndex !== 1){
-            const remove_index = itemsIndexArray.indexOf(currentFieldIndex);
+          const remove_index = itemsIndexArray.indexOf(currentFieldIndex);
 
-            if (remove_index > -1) {
-              itemsIndexArray.splice(remove_index, 1);
-              maxItemIndex = Math.max.apply(null, itemsIndexArray);
-            }
+          if (remove_index > -1) {
+            itemsIndexArray.splice(remove_index, 1);
+            maxItemIndex = Math.max.apply(null, itemsIndexArray);
+          }
 
-            $(el).attr('data-items-index-array', '[' + itemsIndexArray.toString() + ']');		
+          $(el).attr('data-items-index-array', '[' + itemsIndexArray.toString() + ']');		
 
-            $(el + ' .repeat-item[data-field-index='+ currentFieldIndex +']').remove();
-          }						
+          $(el + ' .repeat-item[data-field-index='+ currentFieldIndex +']').remove();
         }
       });
     };

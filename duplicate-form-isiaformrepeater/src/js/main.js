@@ -120,7 +120,7 @@
     },
 
     createAddButton(addButton){
-      $(this.el).append(addButton);
+      $(this.el).prepend(addButton);
     },
 
     createRemoveButton(removeButton){
@@ -128,7 +128,7 @@
       
       $(this.el + ' .repeat-item').each(function(i) {
         if($(this).find('[data-field-id="condition"').length == 0 ){
-          $(this).prepend(removeButton);
+          $(this).append(removeButton);
         }
       });				
     },
@@ -177,7 +177,7 @@
           if (new_group.length > 0) {
             settings.initNewGroup(new_group[0]);
           } else {
-            repeatItem.prepend(settings.removeButton);
+            repeatItem.append(settings.removeButton);
             const removeEl = repeatItem.find('a[data-repeat-remove-btn]');
             
             createRemoveItemClickEvent(el, removeEl, itemsIndexArray);

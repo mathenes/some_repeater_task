@@ -80,9 +80,6 @@
    * [addEl The add button class]
    * @type {[type]}
    */
-      // this.addEl = $('a[data-repeat-add-btn]');
-      // this.addEl = this.settings.outerRepeater ? $('[data-repeater-type="outer"] > div > a[data-repeat-add-btn]') : $('[data-repeater-type="inner"] > div > a[data-repeat-add-btn]');
-
       //Create add button
       this.createAddButton(this.settings.addButton);
       this.addEl = $(this.el + ' a[data-repeat-add-btn]');
@@ -93,10 +90,7 @@
    */
       //Create remove button
       this.createRemoveButton(this.settings.removeButton);
-      
       this.removeEl = $(this.el + ' a[data-repeat-remove-btn]');
-      // this.removeEl = $('a[data-repeat-remove-btn]');
-      
       /**
    * [itemsIndexArray The keys of the array items currently present ]
    * @type {[type]}
@@ -104,12 +98,6 @@
       this.itemsIndexArray = JSON.parse($(this.el).attr('data-items-index-array'));
 
       this.maxItemIndex = Math.max.apply(null, this.itemsIndexArray);
-
-      //Create add button
-      // this.createAddButton(this.settings.addButton);
-      
-      //Create remove button
-      // this.createRemoveButton(this.settings.removeButton);
 
       //Add Item
       this.addItem(
@@ -132,11 +120,9 @@
       $(this.el).append(addButton);
     },
     createRemoveButton(removeButton){
-      // if ($(this).find('[data-field-id="condition"')) return;
       if (this.fieldId !== 'condition' || this.el == '#base_condition_group_1') return;
       
       $(this.el + ' .repeat-item').each(function(i) {
-        // if(i !== 0 && $(this).find('[data-field-id="condition"').length > 0 ){
         if($(this).find('[data-field-id="condition"').length == 0 ){
           $(this).prepend(removeButton);
         }

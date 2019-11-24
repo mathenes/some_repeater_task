@@ -30,10 +30,6 @@
     this._name = pluginName;
     this.removeItem = function(el, removeEl, itemsIndexArray) {
       $(el + ' .repeat-item').on('click', removeEl, function(event) {
-        console.log('el: ', el);
-        console.log('removeEl: ', removeEl);
-        console.log('event.target == removeEl[0]: ', event.target == removeEl[0]);
-        
         event.preventDefault();
         if(!event.target.hasAttribute('data-repeat-remove-btn') || event.target !== removeEl[0]){
           event.stopPropagation();
@@ -48,18 +44,22 @@
 
           $(el).attr('data-items-index-array', '[' + itemsIndexArray.toString() + ']');		
 
-          $(el + ' .repeat-item[data-field-index='+ currentFieldIndex +']').remove();
+          const conditionsTotal =  $(el + ' .repeat-items .repeat-item').length;
+          if (conditionsTotal === 1) {
+            $(el).parent().remove();
+          } else {
+            $(el + ' .repeat-item[data-field-index='+ currentFieldIndex +']').remove();
+          }
         }
       });
     };
+
     this.init();
   }
 
   // Avoid Plugin.prototype conflicts
   $.extend(Plugin.prototype, {
     init() {
-      console.log('init');
-      
       /**
    * [el The element id]
    * @type {String}
@@ -97,7 +97,6 @@
       this.removeEl = $(this.el + ' a[data-repeat-remove-btn]');
       // this.removeEl = $('a[data-repeat-remove-btn]');
       
-
       /**
    * [itemsIndexArray The keys of the array items currently present ]
    * @type {[type]}
@@ -126,12 +125,8 @@
       //Remove Item
       // #base is excluded because no group will get deleted. Only the conditions
       if (this.el !== '#base') {
-        console.log('this.el: ', this.el);
-        console.log('this.removeEl: ', this.removeEl);
-         
         this.removeItem(this.el, this.removeEl, this.itemsIndexArray);
       }
-
     },
     createAddButton(addButton){
       $(this.el).append(addButton);
@@ -149,7 +144,6 @@
     },
     addItem(el, addEl, itemsIndexArray, maxItemIndex, repeatItemSource, removeItem, settings){
       $(el).on('click', addEl, function(event) {
-        
         event.preventDefault();
 
         if(!event.target.hasAttribute('data-repeat-add-btn') || event.target !== addEl[0]){
@@ -192,7 +186,6 @@
           if (new_group.length > 0) {
             settings.initNewGroup(new_group[0]);
           } else {
-            
             repeatItem.prepend(settings.removeButton);
             const removeEl = repeatItem.find('a[data-repeat-remove-btn]');
             

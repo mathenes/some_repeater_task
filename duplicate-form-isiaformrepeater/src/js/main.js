@@ -28,12 +28,40 @@
     this.settings = $.extend({}, defaults, options);
     this._defaults = defaults;
     this._name = pluginName;
+    this.removeItem = function(el, removeEl, itemsIndexArray) {
+      $(el + ' .repeat-item').on('click', removeEl, function(event) {
+        console.log('el: ', el);
+        console.log('removeEl: ', removeEl);
+        console.log('event.target == removeEl[0]: ', event.target == removeEl[0]);
+        
+        event.preventDefault();
+        if(!event.target.hasAttribute('data-repeat-remove-btn') || event.target !== removeEl[0]){
+          event.stopPropagation();
+        } else {
+          const currentFieldIndex = parseInt($(this).attr('data-field-index'));
+          if (currentFieldIndex !== 1){
+            const remove_index = itemsIndexArray.indexOf(currentFieldIndex);
+
+            if (remove_index > -1) {
+              itemsIndexArray.splice(remove_index, 1);
+              maxItemIndex = Math.max.apply(null, itemsIndexArray);
+            }
+
+            $(el).attr('data-items-index-array', '[' + itemsIndexArray.toString() + ']');		
+
+            $(el + ' .repeat-item[data-field-index='+ currentFieldIndex +']').remove();
+          }						
+        }
+      });
+    };
     this.init();
   }
 
   // Avoid Plugin.prototype conflicts
   $.extend(Plugin.prototype, {
     init() {
+      console.log('init');
+      
       /**
    * [el The element id]
    * @type {String}
@@ -66,16 +94,10 @@
    * @type {[type]}
    */
       //Create remove button
-      // this.createRemoveButton(this.settings.removeButton);
-      console.log('----------------------------');
-      console.log('before creating removeEl');
-      console.log('this.el: ', this.el);
-      console.log(this.el + ' a[data-repeat-remove-btn]', $(this.el + ' a[data-repeat-remove-btn]'));
+      this.createRemoveButton(this.settings.removeButton);
       
-      console.log('----------------------------');
-      
-      // this.removeEl = $(this.el + ' a[data-repeat-remove-btn]');
-      this.removeEl = $('a[data-repeat-remove-btn]');
+      this.removeEl = $(this.el + ' a[data-repeat-remove-btn]');
+      // this.removeEl = $('a[data-repeat-remove-btn]');
       
 
       /**
@@ -90,19 +112,27 @@
       // this.createAddButton(this.settings.addButton);
       
       //Create remove button
-      this.createRemoveButton(this.settings.removeButton);
+      // this.createRemoveButton(this.settings.removeButton);
 
       //Add Item
-      this.addItem(this.el, this.addEl, this.itemsIndexArray, this.maxItemIndex, this.repeatItem, { ...this.settings });
+      this.addItem(
+        this.el,
+        this.addEl,
+        this.itemsIndexArray,
+        this.maxItemIndex,
+        this.repeatItem,
+        this.removeItem,
+        { ...this.settings }
+      );
 
       //Remove Item
-      console.log('-------------------------------');
-      console.log('before calling removeItem method');
-      console.log('this.removeEl: ', this.removeEl);
-      
-      console.log('-------------------------------');
-      
-      this.removeItem(this.el, this.removeEl, this.itemsIndexArray, this.maxItemIndex);
+      // #base is excluded because no group will get deleted. Only the conditions
+      if (this.el !== '#base') {
+        console.log('this.el: ', this.el);
+        console.log('this.removeEl: ', this.removeEl);
+         
+        this.removeItem(this.el, this.removeEl, this.itemsIndexArray);
+      }
 
     },
     createAddButton(addButton){
@@ -119,7 +149,7 @@
         }
       });				
     },
-    addItem(el, addEl, itemsIndexArray, maxItemIndex, repeatItemSource, settings){
+    addItem(el, addEl, itemsIndexArray, maxItemIndex, repeatItemSource, removeItem, settings){
       $(el).on('click', addEl, function(event) {
         
         event.preventDefault();
@@ -164,47 +194,13 @@
           if (new_group.length > 0) {
             settings.initNewGroup(new_group[0]);
           } else {
-            console.log('prepend remove button');
-            console.log('this: ', this);
             
             repeatItem.prepend(settings.removeButton);
+            const removeEl = repeatItem.find('a[data-repeat-remove-btn]');
+            
+            removeItem(el, removeEl, itemsIndexArray);
           }
         }						
-      });
-    },
-    removeItem(el, removeEl, itemsIndexArray){
-      console.log('entered remove method');
-      console.log('el: ', el);
-      console.log('selector: ', $(el + ' .repeat-item'));
-      console.log('removeEl: ', removeEl);
-      console.log(el + ' .repeat-item', $(el + ' .repeat-item'));
-      
-      
-      $(el + ' .repeat-item').on('click', removeEl, function(event) {
-        console.log('inside remove event');
-        
-        console.log('removeEl: ', removeEl);
-        console.log('event.target: ', event.target);
-        
-        event.preventDefault();
-        if(!event.target.hasAttribute('data-repeat-remove-btn' || event.target !== removeEl[0])){
-          event.stopPropagation();
-        } else{
-          console.log('entrou e continuou');
-          const currentFieldIndex = parseInt($(this).attr('data-field-index'));
-          if (currentFieldIndex !== 1){
-            const remove_index = itemsIndexArray.indexOf(currentFieldIndex);
-
-            if (remove_index > -1) {
-              itemsIndexArray.splice(remove_index, 1);
-              maxItemIndex = Math.max.apply(null, itemsIndexArray);
-            }
-
-            $(el).attr('data-items-index-array', '[' + itemsIndexArray.toString() + ']');		
-  
-            $(el + ' .repeat-item[data-field-index='+ currentFieldIndex +']').remove();
-          }						
-        }
       });
     },
   });

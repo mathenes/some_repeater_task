@@ -8,8 +8,7 @@
     <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
-    <link rel="stylesheet" href="css/isia-form-repeater.min.css">
-    <link rel="stylesheet" href="css/demo.css">
+    <link rel="stylesheet" href="css/style.css">
   </head>
 
   <body>
@@ -20,35 +19,33 @@
           <!-- GROUP REPETITION -->
           <div
             id="base"
-            class="isiaFormRepeater repeat-section"
-            style="display: flex; align-items:center;"
+            class="repeat-section"
             data-field-id="base"
             data-items-index-array="[1]"
           >
             <div class="repeat-items">
               <div
-                class="repeat-item"
-                style="display: flex; align-items:center;"
+                class="repeat-item col-12"
                 data-field-index="1"
               >
 
                 <!-- CONDITIONS REPETION -->
                 <div
                   id="base_condition_group_1"
-                  class="isiaFormRepeater repeat-section"
-                  style="display: flex; align-items:center;"
+                  class="repeat-section flex items-center"
                   data-field-id="condition"
                   data-items-index-array="[1]"
                 >
-                  <div class="repeat-items">
+                  <div class="repeat-items repeat-items flex-auto">
                     <div
-                      class="repeat-item"
-                      style="display: flex; align-items:center;"
+                      class="repeat-item flex items-center"
                       data-field-index="1"
                     >
-                      <div style="margin-right: .5rem; margin-left: .5rem;">
-                        <label>Condition</label>
-                        <select class="repeat-el" name="test_field_id[1][test_sub1]">
+                      <div class="col-4">
+                        <select
+                          class="repeat-el col-12"
+                          name="test_field_id[1][test_sub1]"
+                        >
                           <option value="" disabled selected>Metric</option>
                           <option value="Clicks">Clicks</option>
                           <option value="Impressions">Impressions</option>
@@ -59,21 +56,11 @@
                         </select>
                       </div>
     
-                      <div style="margin-right: .5rem; margin-left: .5rem;">
-                        <label>Operator</label>
-                        <select class="repeat-el" name="test_field_id[1][test_sub1]">
-                          <option value="" disabled selected>Operator</option>
-                          <option value="<"><</option>
-                          <option value="<="><=</option>
-                          <option value=">">></option>
-                          <option value=">=">>=</option>
-                          <option value="=">=</option>
-                        </select>
-                      </div>
-    
-                      <div style="margin-right: .5rem; margin-left: .5rem;">
-                        <label>Lookback Window</label>
-                        <select class="repeat-el" name="test_field_id[1][test_sub1]">
+                      <div class="col-3">
+                        <select
+                          class="repeat-el col-12"
+                          name="test_field_id[1][test_sub1]"
+                        >
                           <option value="" disabled selected>Lookback Window</option>
                           <option value="3 Days">3 Days</option>
                           <option value="Impressions">2</option>
@@ -83,10 +70,30 @@
                           <option value="Clicks Rank">CPA</option>
                         </select>
                       </div>
+
+                      <div class="col-2">
+                        <select
+                          class="repeat-el col-12"
+                          name="test_field_id[1][test_sub1]"
+                        >
+                          <option value="" disabled selected>Operator</option>
+                          <option value="<"><</option>
+                          <option value="<="><=</option>
+                          <option value=">">></option>
+                          <option value=">=">>=</option>
+                          <option value="=">=</option>
+                        </select>
+                      </div>
     
-                      <div style="margin-right: .5rem; margin-left: .5rem;">
-                        <label>Value</label>
-                        <input type="text" name="firstname" size="10" maxlength="4" style="font-size: 12pt; height: 30px; width:180px">
+                      <div class="col-3">
+                        <input
+                          type="text"
+                          name="firstname"
+                          size="10"
+                          maxlength="4"
+                          class="col-12"
+                          style="font-size: 12pt; height: 30px;"
+                        >
                       </div>
                     </div>
                   </div> 

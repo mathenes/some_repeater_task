@@ -1,3 +1,33 @@
-select {
+.pure-form select {
   border-radius: 0;
+  margin: 0;
+  height: 40px;
+}
+
+.pure-form input[type=text] {
+  border-radius: 0;
+  margin: 0;
+  height: 40px;
+}
+
+.repeat-el.no-side-borders {
+  border-right: 0;
+  border-left: 0;
+}
+
+input.repeat-el.no-left-border {
+  border-left: 0;
+  border-bottom-right-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.repeat-el.no-right-border {
+  border-right: 0;
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
+}
+
+.repeat-section {
+  margin: 30px;
+  margin-bottom: 40px;
 }

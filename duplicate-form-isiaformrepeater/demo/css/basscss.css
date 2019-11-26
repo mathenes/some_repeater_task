@@ -513,6 +513,11 @@
 .rounded-bottom{ border-radius: 0 0 3px 3px }
 .rounded-left{ border-radius: 3px 0 0 3px }
 
+.rounded-bottom-left { border-bottom-left-radius: 4px }
+.rounded-bottom-right { border-bottom-right-radius: 4px }
+.rounded-top-left { border-top-left-radius: 4px }
+.rounded-top-right { border-top-right-radius: 4px }
+
 .not-rounded{ border-radius:0 }
 
 .hide{

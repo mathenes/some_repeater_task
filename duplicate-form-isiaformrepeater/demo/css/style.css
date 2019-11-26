@@ -61,7 +61,12 @@ input.repeat-el.no-left-border {
   border-bottom-left-radius: 0;
   padding: 1.7px;
   height: 50px;
+}
+
+.and-or-text {
   color: white;
+  font-size: 10.1px;
+  width: 16px;
 }
 
 .repeat-add-wrapper a.add-button {
@@ -76,6 +81,10 @@ input.repeat-el.no-left-border {
 
 .text-light-gray {
   color: #a8abad;
+}
+
+.vertical-text {
+	transform: rotate(270deg);
 }
 
 .cursor-pointer { cursor: pointer; }

@@ -1,7 +1,8 @@
 .pure-form select {
   border-radius: 0;
   margin: 0;
-  height: 40px;
+  height: 50px;
+
   /* remove the arrow */
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -12,7 +13,11 @@
 .pure-form input[type=text] {
   border-radius: 0;
   margin: 0;
-  height: 40px;
+  height: 50px;
+}
+
+.base {
+  background-color: #e0e1e2;
 }
 
 .repeat-el.no-side-borders {

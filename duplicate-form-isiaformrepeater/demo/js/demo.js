@@ -2,8 +2,21 @@ $(document).ready(function() {
   // function that calls isiaFormRepeater
   const initRepeater = (el) => {
     $(el).isiaFormRepeater({
-      addButton: '<div class="repeat-add-wrapper"><div data-and_or="or" class="and-or-button mr1 cursor-pointer"><div id="and-or-text" class="vertical-text and-or-text">OR</div></div><a data-repeat-add-btn class="repeat-add add-button"  href="#">&plus;</a></div>',
+      addButton: '<div class="repeat-add-wrapper"><div data-and_or="or" class="and-or-button mr1 cursor-pointer"><div class="vertical-text and-or-text">OR</div></div><a data-repeat-add-btn class="repeat-add add-button"  href="#">&plus;</a></div>',
       removeButton: '<a data-repeat-remove-btn class="repeat-remove" style="background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAMAAAAMCGV4AAAAbFBMVEUAAAA0SV40SV40SV40SV40SV40SV40SV40SV40SV40SV40SV40SV40SV40SV40SV40SV40SV40SV40SV40SV40SV40SV40SV40SV40SV40SV40SV40SV40SV40SV40SV40SV40SV40SV40SV7ulPmzAAAAI3RSTlMAAQQFDg8QES4vMDI3OD9AoKKlqqvHyMrO09fa4Ojp6+319/7EkGIAAABmSURBVAgdTcEJEoIwFETB94GIu8ZdRCDO/e9oihSVdBPZxg/6ntfGzD2U3BsiF7QIDVin7G3sVTriVbrSSxVJLU30UkVSSxNepRsHlU7YR1ln0P60CI6ofSl5rpjZ7jJq8FsjM5I/lckTO6Y3PXUAAAAASUVORK5CYII=); padding: 10px 0 5px 15px; margin-left: 10px;" href="#"></a>',
+    });
+
+    // Code for or/and
+    $('[data-and_or]').on('click', function() {
+      console.log('this: ', this);
+      
+      if ($(this).data().and_or == 'or') {
+        $(this).data().and_or = 'and';
+        $(this).children().text('AND');
+      } else {
+        $(this).data().and_or = 'or';
+        $(this).children().text('OR');
+      }
     });
   };
 
@@ -29,18 +42,6 @@ $(document).ready(function() {
       $(this).data().enabler = 'enabled';
       $('#enabler-text').text('Pause');
       $('#enabler-icon').html('&#8545;');
-    }
-  });
-
-  // Code for or/and
-
-  $('[data-and_or]').on('click', function() {
-    if ($(this).data().and_or == 'or') {
-      $(this).data().and_or = 'and';
-      $('#and-or-text').text('AND');
-    } else {
-      $(this).data().and_or = 'or';
-      $('#and-or-text').text('OR');
     }
   });
 });

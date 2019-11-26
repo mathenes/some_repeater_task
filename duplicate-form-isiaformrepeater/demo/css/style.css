@@ -53,6 +53,27 @@ input.repeat-el.no-left-border {
   width: 15px;
 }
 
+.or-button {
+  background-color: #519fffb0;
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  padding: 1.7px;
+  height: 50px;
+  color: white;
+}
+
+.repeat-add-wrapper a.add-button {
+  background-color: #519fff;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  padding: 4px;
+  color: white;
+}
+
 .text-light-gray {
   color: #a8abad;
 }

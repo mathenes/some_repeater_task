@@ -5,7 +5,7 @@ $(document).ready(function() {
   };
 
   $('#base').isiaFormRepeater({
-    addButton: '<div class="repeat-add-wrapper"><a data-repeat-add-btn class="repeat-add pure-button pure-button-primary" href="#">Add</a></div>',
+    addButton: '<div class="repeat-add-wrapper self-end"><a data-repeat-add-btn class="repeat-add" style="margin-right: 85px;" href="#">&plus; Group</a></div>',
     initNewGroup: (group) => initRepeater(group),
   });
 

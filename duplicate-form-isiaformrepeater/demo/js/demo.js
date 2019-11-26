@@ -7,9 +7,7 @@ $(document).ready(function() {
     });
 
     // Code for or/and
-    $('[data-and_or]').on('click', function() {
-      console.log('this: ', this);
-      
+    $(el).find('[data-and_or]').on('click', function() {
       if ($(this).data().and_or == 'or') {
         $(this).data().and_or = 'and';
         $(this).children().text('AND');

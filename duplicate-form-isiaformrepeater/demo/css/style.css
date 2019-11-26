@@ -46,3 +46,15 @@ input.repeat-el.no-left-border {
   color: black;
   text-decoration: none;
 }
+
+.enabler {
+  background-color: #e0e1e2;
+  font-size: 15px;
+  width: 15px;
+}
+
+.text-light-gray {
+  color: #a8abad;
+}
+
+.cursor-pointer { cursor: pointer; }

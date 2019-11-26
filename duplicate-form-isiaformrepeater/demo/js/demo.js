@@ -13,4 +13,19 @@ $(document).ready(function() {
   $('#base > .repeat-items').children().each((_index, group) => (
     initRepeater($(group).children()[0])
   ));
+
+
+  // Code for Stop/Enable
+
+  $('[data-enabler]').on('click', function() {
+    if ($(this).data().enabler == 'enabled') {
+      $(this).data().enabler = 'disabled';
+      $('#enabler-text').text('Play');
+      $('#enabler-icon').html('&#10095;');
+    } else {
+      $(this).data().enabler = 'enabled';
+      $('#enabler-text').text('Pause');
+      $('#enabler-icon').html('&#8214;');
+    }
+  });
 });

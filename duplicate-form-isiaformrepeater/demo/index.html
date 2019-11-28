@@ -57,6 +57,41 @@
                   data-items-index-array="[1]"
                 >
                   <div class="repeat-items flex-auto">
+                    <!-- FIXED TOP ROW -->
+                    <div class="fixed-item flex items-center">
+                      <div class="col-4">
+                        <select
+                          class="repeat-el col-12 no-right-border"
+                          name="fixed_field[1][test_sub1]"
+                        >
+                          <option value="" selected>Campaign Name</option>
+                          <option value="Clicks">Ad Group Name</option>
+                          <option value="Impressions">Ad</option>
+                        </select>
+                      </div>
+                      <div class="col-3">
+                        <select
+                          class="repeat-el no-side-borders col-12"
+                          name="fixed_field[1][test_sub1]"
+                        >
+                          <option value="" disabled selected>Operator</option>
+                          <option value="=">=</option>
+                          <option value="contains">contains</option>
+                        </select>
+                      </div>
+                      <div class="col-4">
+                        <input
+                          class="col-12 repeat-el no-left-border"
+                          type="text"
+                          name=" fixed_field[1][test_sub1]"
+                          size="10"
+                          maxlength="4"
+                          style="font-size: 12pt;"
+                        >
+                      </div>
+                      <div class="col4"></div>
+                    </div>
+                    <!-- END OF FIXED TOP ROW -->
                     <div
                       class="repeat-item flex items-center"
                       data-field-index="1"

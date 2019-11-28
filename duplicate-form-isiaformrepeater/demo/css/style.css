@@ -60,7 +60,7 @@ input.repeat-el.no-left-border {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
   padding: 1.7px;
-  height: 50px;
+  height: 100%;
 }
 
 .and-or-text {

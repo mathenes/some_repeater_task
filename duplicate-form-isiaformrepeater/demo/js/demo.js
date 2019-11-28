@@ -19,7 +19,7 @@ $(document).ready(function() {
   };
 
   $('#base').isiaFormRepeater({
-    addButton: '<div class="repeat-add-wrapper self-end"><a data-repeat-add-btn class="repeat-add" style="margin-right: 85px;" href="#">&plus; Group</a></div>',
+    addButton: '<div class="repeat-add-wrapper self-end"><a data-repeat-add-btn class="repeat-add" style="margin-right: 85px;" href="#">&plus; Trigger/Action</a></div>',
     initNewGroup: (group) => initRepeater(group),
   });
 
